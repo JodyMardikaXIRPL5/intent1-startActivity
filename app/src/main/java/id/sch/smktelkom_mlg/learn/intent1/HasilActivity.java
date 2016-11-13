@@ -1,16 +1,21 @@
 package id.sch.smktelkom_mlg.learn.intent1;
 
-import android.icu.util.Calendar;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
-public class HasilActivity extends AppCompatActivity {
+import java.util.Calendar;
+
+class HasilAcivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hasil);
+
+        setTitle("Hasil");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         String nama = getIntent().getStringExtra(MainActivity.NAMA);
         int umur = getIntent().getIntExtra(MainActivity.UMUR, 0);
@@ -18,9 +23,8 @@ public class HasilActivity extends AppCompatActivity {
         int yearNow = Calendar.getInstance().get(Calendar.YEAR);
         int tahunLahir = yearNow - umur;
 
-        setTitle("Hasil");
-
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        TextView tvHasil = (TextView) findViewById(R.id.textViewHasil);
+        tvHasil.setText(nama + " lahir pada tahun" + tahunLahir);
     }
 
     @Override

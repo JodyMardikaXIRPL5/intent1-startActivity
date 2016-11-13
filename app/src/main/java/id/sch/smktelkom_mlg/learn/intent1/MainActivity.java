@@ -13,16 +13,15 @@ public class MainActivity extends AppCompatActivity {
     EditText etNama;
     EditText etUmur;
 
+
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-
-    {
-        setTitle("Input");
-        etNama = (EditText) findViewById(R.id.editTextNama);
-        etUmur = (EditText) findViewById(R.id.editTextUmur);
-
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        etNama = (EditText) findViewById(R.id.editTextNama);
+        etUmur = (EditText) findViewById(R.id.editTextUmur);
 
         findViewById(R.id.buttonHitung).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -31,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        setTitle("Input");
     }
 
     private void goHasil() {
@@ -39,8 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
         int umur = umurStr.isEmpty() ? 0 : Integer.parseInt(umurStr);
 
-        Intent intent = new Intent(MainActivity.this, HasilActivity.class);
+        Intent intent = new Intent(MainActivity.this, HasilAcivity.class);
         intent.putExtra(NAMA, nama);
+
         intent.putExtra(UMUR, umur);
 
         startActivity(intent);
